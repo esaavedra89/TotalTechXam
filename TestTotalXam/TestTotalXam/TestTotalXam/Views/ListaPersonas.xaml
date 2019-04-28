@@ -3,10 +3,102 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestTotalXam.Views.ListaPersonas">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            BackgroundColor="LightGray">
+            <ListView 
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding RefreshCommand}"
+                IsRefreshing="{Binding IsRefreshing}"
+                ItemsSource="{Binding ListaPersonasSource}"
+                Margin="0"
+                SeparatorColor="#910b20"
+                SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                                BackgroundColor="White"
+                                                HasShadow="True"
+                                                Margin="6,7,6,7">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="0.8*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <!--<Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectProductorCommand}"/>
+                                    </Grid.GestureRecognizers>-->
+                                    <!--<imageCircular:CircleImage
+                                                        Aspect="AspectFill"
+                                                        BorderColor="White"           
+                                                        BorderThickness="2"
+                                                        Grid.Column="0"
+                                                        HorizontalOptions="FillAndExpand"
+                                                        Source="{Binding ImageSource}">
+                                        <imageCircular:CircleImage.HeightRequest>
+                                            <OnIdiom 
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="20"
+                                                                Tablet="80"/>
+                                        </imageCircular:CircleImage.HeightRequest>
+                                    </imageCircular:CircleImage>-->
+                                    <Image
+                                        Aspect="AspectFit"
+                                        Grid.Column="0"
+                                        Grid.Row="0"
+                                        Grid.RowSpan="3"
+                                        Source="{Binding thumbnail}"/>
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="14"
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        Text="{Binding NombreApellido}"
+                                        TextColor="Black"/>
+                                    <Label
+                                        FontSize="12"
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        Text="{Binding email}"
+                                        TextColor="#0ed118"/>
+                                    <StackLayout
+                                        Grid.Column="1"
+                                        Grid.Row="2"
+                                        Orientation="Horizontal">
+                                        <Image
+                                            Source="ic_location_on.png"/>
+                                        <Label
+                                            FontSize="12"
+                                            Text="{Binding street}"
+                                            TextColor="LightGray"/>
+
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Column="2"
+                                        Grid.Row="0"
+                                        Orientation="Horizontal">
+                                        <Image
+                                            Source="ic_star.png"/>
+                                        <Label
+                                            FontSize="12"
+                                            Text="{Binding value}"
+                                            TextColor="LightGray"/>
+
+                                    </StackLayout>
+
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

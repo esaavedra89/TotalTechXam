@@ -1,12 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:TestTotalXam.ViewModels"
              x:Class="TestTotalXam.Views.LoginView">
+    <ContentPage.BindingContext>
+        <viewModel:LoginViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView
+            BackgroundColor="#0ed118">
+            <StackLayout
+                Margin="25,50">
+                <Label 
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Margin="30,30,30,50"
+                    Text="My App"
+                    TextColor="White"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="CenterAndExpand" />
+                <Entry
+                    BackgroundColor="Green"
+                    Margin="0,20"
+                    Placeholder="Email adress"
+                    PlaceholderColor="WhiteSmoke"
+                    TextColor="White"/>
+                <Entry
+                    BackgroundColor="Green"
+                    Margin="0,20"
+                    Placeholder="Password"
+                    PlaceholderColor="WhiteSmoke"
+                    TextColor="White"/>
+
+                <Button
+                    BackgroundColor="White"
+                    BorderRadius="25"
+                    Margin="0,0,0,50"
+                    Text="Login"
+                    TextColor="#0ed118"/>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

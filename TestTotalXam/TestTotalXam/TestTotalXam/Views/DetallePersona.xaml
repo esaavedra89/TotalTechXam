@@ -3,10 +3,141 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestTotalXam.Views.DetallePersona">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <!--Persona-->
+                <StackLayout>
+                    <Frame
+                        BackgroundColor="White"
+                        HasShadow="True"
+                        Margin="6,7,6,7">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="0.8*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <!--<Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectProductorCommand}"/>
+                                    </Grid.GestureRecognizers>-->
+                            <!--<imageCircular:CircleImage
+                                                        Aspect="AspectFill"
+                                                        BorderColor="White"           
+                                                        BorderThickness="2"
+                                                        Grid.Column="0"
+                                                        HorizontalOptions="FillAndExpand"
+                                                        Source="{Binding ImageSource}">
+                                        <imageCircular:CircleImage.HeightRequest>
+                                            <OnIdiom 
+                                                                x:TypeArguments="x:Double"
+                                                                Phone="20"
+                                                                Tablet="80"/>
+                                        </imageCircular:CircleImage.HeightRequest>
+                                    </imageCircular:CircleImage>-->
+                            <Image
+                                Aspect="AspectFit"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                Source="{Binding Imagen}"/>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                Text="{Binding NombrePersona}"
+                                TextColor="Black"/>
+                            <Label
+                                FontSize="12"
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                Text="{Binding EmailPersona}"
+                                TextColor="#0ed118"/>
+                            <StackLayout
+                                Grid.Column="1"
+                                Grid.Row="2"
+                                Orientation="Horizontal">
+                                <Image Source="ic_star.png"/>
+                                <Image Source="ic_star.png"/>
+                                <Image Source="ic_star.png"/>
+                                <Image Source="ic_star.png"/>
+                                <Image Source="ic_star.png"/>
+                                <Label
+                                    FontSize="12"
+                                    Text="{Binding Rate}"
+                                    TextColor="LightGray"/>
+
+                            </StackLayout>
+
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+                <!--Direccion-->
+                <StackLayout
+                    Margin="20">
+                    <Label
+                        FontSize="14"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="Dirección:"
+                        TextColor="#0ed118"/>
+                    <!---->
+                    <Label
+                        FontSize="12"
+                        Text="{Binding Calle, StringFormat='Calle: {0}'}"
+                        TextColor="Gray"/>
+                    <Label
+                        FontSize="12"
+                        Text="{Binding Ciudad, StringFormat='Ciudad: {0}'}"
+                        TextColor="Gray"/>
+                    <Label
+                        FontSize="12"
+                        Text="{Binding Estado, StringFormat='Estado: {0}'}"
+                        TextColor="Gray"/>
+                    <Label
+                        FontSize="12"
+                        Text="{Binding CodigoPostal, StringFormat='Código Postal: {0}'}"
+                        TextColor="Gray"/>
+                    <Label
+                        FontSize="12"
+                        Text="{Binding Telefono, StringFormat='Teléfono: {0}'}"
+                        TextColor="Gray"/>
+                    
+                    
+                </StackLayout>
+                <!--Ubicacion-->
+                <StackLayout
+                    Margin="20">
+                        <StackLayout
+                            Orientation="Horizontal">
+                            <Image
+                                Source="ic_location_on.png"/>
+                            <Label
+                                FontSize="14"
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                Text="Ubicación:"
+                                TextColor="#0ed118"/>
+                            
+                        </StackLayout>
+                        <StackLayout
+                                BackgroundColor="Gray"
+                                HeightRequest="200"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"></StackLayout>
+                    </StackLayout>
+                    <Button
+                        BackgroundColor="#0ed118"
+                        BorderRadius="25"
+                        Margin="20,0,20,50"
+                        Text="Contactar"
+                        TextColor="White"/>
+                </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
