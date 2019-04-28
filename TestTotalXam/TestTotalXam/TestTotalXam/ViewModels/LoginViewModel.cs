@@ -45,6 +45,7 @@ namespace TestTotalXam.ViewModels
                     var resulta = JsonConvert.DeserializeObject<PersonasModel>(resultado);
                     foreach (var item in resulta.results)
                     {
+
                         DetallePersonaModel detalle = new DetallePersonaModel
                         {
 
